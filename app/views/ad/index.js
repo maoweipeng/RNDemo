@@ -14,9 +14,7 @@ function Timer({onTimeout}) {
       setTime(time - 1)
     }
 
-    const timer = setTimeout(() => {
-      countdown()
-    }, 1000)
+    const timer = setTimeout(countdown, 1000)
 
     return () => {
       clearTimeout(timer)

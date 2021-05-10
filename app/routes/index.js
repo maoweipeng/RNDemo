@@ -16,6 +16,7 @@ import Discovery from '../views/tab/discovery'
 
 import Ad from '../views/ad'
 import Setting from '../views/setting'
+import {px2pt} from '../utils/ui'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -136,8 +137,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontSize: 15,
-    marginBottom: 3,
+    fontSize: px2pt(30),
+    marginBottom: px2pt(6),
     textAlign: 'center',
   },
   labelColor: {
@@ -154,19 +155,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    height: 30,
-    width: 30,
+    height: px2pt(50),
+    width: px2pt(50),
   },
   floatButton: {
     position: 'absolute',
-    top: -30,
+    top: px2pt(-50),
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 30,
+    borderRadius: px2pt(50),
   },
   floatButtonIcon: {
-    height: 60,
-    width: 60,
+    height: px2pt(100),
+    width: px2pt(100),
   },
 })
