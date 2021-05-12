@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 
-function Timer({onTimeout}) {
-  const [time, setTime] = useState(3)
+function useTimeout(initValue, callback) {
+  const [time, setTime] = useState(initValue)
 
   useEffect(() => {
     function countdown() {
-      if (time <= 0) {
-        onTimeout()
+      setTime(time - 1)
+
+      if (time <= 1) {
+        callback()
         return
       }
-
-      setTime(time - 1)
     }
 
     const timer = setTimeout(countdown, 1000)
@@ -19,8 +19,13 @@ function Timer({onTimeout}) {
     return () => {
       clearTimeout(timer)
     }
-  }, [onTimeout, time])
+  }, [callback, time])
 
+  return time
+}
+
+function Timer({onTimeout}) {
+  const time = useTimeout(3, onTimeout)
   return <Text style={styles.text}>{time}</Text>
 }
 

@@ -16,6 +16,8 @@ import Discovery from '../views/tab/discovery'
 
 import Ad from '../views/ad'
 import Setting from '../views/setting'
+import Lottie from '../views/lottie'
+
 import {px2pt} from '../utils/ui'
 
 const Stack = createStackNavigator()
@@ -120,6 +122,11 @@ export default function Router() {
         <Stack.Screen
           name="Discovery"
           component={Discovery}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Lottie"
+          component={Lottie}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

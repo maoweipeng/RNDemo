@@ -1,10 +1,19 @@
 import React from 'react'
-import {StatusBar, StyleSheet, useColorScheme, View} from 'react-native'
+import {
+  StatusBar,
+  StyleSheet,
+  useColorScheme,
+  View,
+  ScrollView,
+} from 'react-native'
 import {useFocusEffect} from '@react-navigation/native'
 
 import Header from '../../components/header'
+import Menu from '../../components/lotties/menu'
+import Loading from '../../components/lotties/loading'
+import Smile from '../../components/lotties/smile'
 
-export default function Setting({navigation}) {
+export default function Lottie({navigation}) {
   const isDarkMode = useColorScheme() === 'dark'
 
   useFocusEffect(() => {
@@ -20,10 +29,15 @@ export default function Setting({navigation}) {
       <Header
         style={styles.header}
         leftText="返回"
-        title="设置"
+        title="动画"
         onLeftPress={handlePress}
       />
-      <View style={styles.content} />
+
+      <ScrollView contentContainerStyle={styles.content}>
+        <Menu />
+        <Loading />
+        <Smile />
+      </ScrollView>
     </View>
   )
 }
@@ -40,6 +54,5 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 })
