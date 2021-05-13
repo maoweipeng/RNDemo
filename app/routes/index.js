@@ -89,7 +89,7 @@ function TabPage({navigation}) {
                   <View style={styles.floatButton}>
                     <Image
                       style={styles.floatButtonIcon}
-                      source={require('../images/discovery.png')}
+                      source={require('../images/music.png')}
                     />
                   </View>
                   {props.children}
