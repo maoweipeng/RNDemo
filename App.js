@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import SplashScreen from 'react-native-splash-screen'
-import Router from './app/routes'
+import Router from './src/routes'
 
 function App() {
   useEffect(() => {

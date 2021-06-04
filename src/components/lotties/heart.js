@@ -7,7 +7,7 @@ export default function Heart() {
   return (
     <View style={styles.loading}>
       <LottieView
-        source={require('../lotties/json/heart.json')}
+        source={require('./json/heart.json')}
         resizeMode="cover"
         loop
         autoPlay

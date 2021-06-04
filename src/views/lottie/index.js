@@ -5,6 +5,7 @@ import {
   useColorScheme,
   View,
   Text,
+  FlatList,
   ScrollView,
 } from 'react-native'
 import {useFocusEffect} from '@react-navigation/native'
@@ -14,7 +15,6 @@ import Menu from '../../components/lotties/menu'
 import Loading from '../../components/lotties/loading'
 import Smile from '../../components/lotties/smile'
 import Heart from '../../components/lotties/heart'
-import RefreshControl from '../../components/refreshControl'
 
 export default function Lottie({navigation}) {
   const isDarkMode = useColorScheme() === 'dark'
@@ -47,6 +47,22 @@ export default function Lottie({navigation}) {
     console.log('onRefresh')
   }, [])
 
+  function renderItem() {
+    return (
+      <>
+        <Menu />
+        <Loading />
+        <Smile />
+        <Heart />
+      </>
+    )
+  }
+
+  function writeLog(props) {
+    console.log(props)
+    return null
+  }
+
   return (
     <View style={styles.container}>
       <Header
@@ -56,45 +72,16 @@ export default function Lottie({navigation}) {
         onLeftPress={handlePress}
       />
 
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.content}
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-            renderContent={() => <Text>refreshing</Text>}
-          />
-        }>
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-        <Menu />
-        <Loading />
-        <Smile />
-        <Heart />
-      </ScrollView>
+      <FlatList
+        data={[1]}
+        renderItem={renderItem}
+        renderScrollComponent={props => (
+          <ScrollView {...props}>
+            {writeLog(props)}
+            <Text>哈哈哈</Text>
+          </ScrollView>
+        )}
+      />
     </View>
   )
 }

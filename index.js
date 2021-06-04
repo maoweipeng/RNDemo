@@ -21,5 +21,4 @@ TextInput.defaultProps = Object.assign({}, TextInput.defaultProps, {
 Text.defaultProps = Object.assign({}, Text.defaultProps, {
   allowFontScaling: false,
 })
-
 AppRegistry.registerComponent(appName, () => App)

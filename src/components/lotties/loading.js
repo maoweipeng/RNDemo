@@ -3,11 +3,11 @@ import {StyleSheet, View} from 'react-native'
 import LottieView from 'lottie-react-native'
 import {px2pt} from '../../utils/ui'
 
-export default function Smile() {
+export default function Loading() {
   return (
     <View style={styles.loading}>
       <LottieView
-        source={require('../lotties/json/smile.json')}
+        source={require('./json/loading.json')}
         resizeMode="cover"
         loop
         autoPlay
